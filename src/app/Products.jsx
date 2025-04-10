@@ -64,31 +64,37 @@ const Products = () => {
             : 'flex flex-col gap-4'
         }`}
       >
-        {filtered.map((p) => (
-          <div
-            key={p._id}
-            className="bg-white rounded-xl shadow-md p-4 flex flex-col sm:flex-row sm:items-center gap-4"
-          >
-            <img
-              src={p.image}
-              alt={p.name}
-              className="w-full sm:w-32 h-40 object-cover rounded-md"
-            />
-            <div className="flex-1 flex flex-col justify-between">
-              <div>
-                <h3 className="text-lg font-semibold">{p.name}</h3>
-                <p className="text-sm text-gray-600">{p.description}</p>
-                <p className="mt-2 font-bold text-blue-600">₹{p.sellingPrice}</p>
-              </div>
-              <button
-                onClick={() => addToCart(p)}
-                className="mt-4 w-full sm:w-fit px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
-        ))}
+      {filtered.map((p) => (
+  <div
+    key={p._id}
+    className="bg-white rounded-xl shadow-md p-4 flex flex-col sm:flex-row sm:items-center gap-4"
+  >
+    <img
+      src={p.image}
+      alt={p.name}
+      className="w-full sm:w-32 h-40 object-cover rounded-md"
+    />
+    <div className="flex-1 flex flex-col justify-between">
+      <div className="space-y-1">
+        <h3 className="text-lg font-semibold">{p.name}</h3>
+        <p className="text-sm text-gray-600">{p.description}</p>
+        <p className="text-sm text-gray-700">Original Price: ₹{p.originalPrice}</p>
+        <p className="text-sm text-gray-700">Discount Price: ₹{p.discountPrice}</p>
+        <p className="font-bold text-blue-600">Selling Price: ₹{p.sellingPrice}</p>
+        <p className="text-sm text-gray-700">Quantity: {p.quantity}</p>
+        <p className="text-sm text-gray-700">UOM: {p.uom}</p>
+        <p className="text-sm text-gray-700">HSN Code: {p.hsnCode}</p>
+      </div>
+      <button
+        onClick={() => addToCart(p)}
+        className="mt-4 w-full sm:w-fit px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+      >
+        Add to Cart
+      </button>
+    </div>
+  </div>
+))}
+
       </div>
     </div>
   );
